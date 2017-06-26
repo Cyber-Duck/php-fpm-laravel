@@ -47,25 +47,12 @@ RUN docker-php-ext-install gd && \
     docker-php-ext-install gd
 
 #####################################
-# Python:
-#####################################
-
-ARG INSTALL_PYTHON=false
-RUN if [ ${INSTALL_PYTHON} != false ]; then \
-    apt-get -y install python2.7 \
-;fi
-RUN echo 'alias python="/usr/bin/python2.7"' >> ~/.bashrc
-
-#####################################
 # xDebug:
 #####################################
 
-ARG INSTALL_XDEBUG=false
-RUN if [ ${INSTALL_XDEBUG} != false ]; then \
-    # Install the xdebug extension
-    pecl install xdebug && \
-    docker-php-ext-enable xdebug \
-;fi
+# Install the xdebug extension
+pecl install xdebug && \
+docker-php-ext-enable xdebug \
 # Copy xdebug configration for remote debugging
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
@@ -73,26 +60,20 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # PHP Memcached:
 #####################################
 
-ARG INSTALL_MEMCACHED=false
-RUN if [ ${INSTALL_MEMCACHED} != false ]; then \
-    # Install the php memcached extension
-    pecl install memcached && \
-    docker-php-ext-enable memcached \
-;fi
+# Install the php memcached extension
+pecl install memcached && \
+docker-php-ext-enable memcached \
 
 #####################################
 # Composer:
 #####################################
 
-ARG INSTALL_COMPOSER=false
-RUN if [ ${INSTALL_COMPOSER} != false ]; then \
-    # Install composer and add its bin to the PATH.
-    curl -s http://getcomposer.org/installer | php && \
-        echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
-        mv composer.phar /usr/local/bin/composer && \
-    # Source the bash
-    . ~/.bashrc \
-;fi
+# Install composer and add its bin to the PATH.
+curl -s http://getcomposer.org/installer | php && \
+    echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
+    mv composer.phar /usr/local/bin/composer && \
+# Source the bash
+. ~/.bashrc \
 
 #####################################
 # Laravel Schedule Cron Job:
