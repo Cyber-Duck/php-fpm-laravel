@@ -51,7 +51,7 @@ RUN docker-php-ext-install gd && \
 #####################################
 
 ARG INSTALL_PYTHON=false
-RUN if [ ${INSTALL_PYTHON} = true ]; then \
+RUN if [ ${INSTALL_PYTHON} != false ]; then \
     apt-get -y install python2.7 \
 ;fi
 RUN echo 'alias python="/usr/bin/python2.7"' >> ~/.bashrc
@@ -61,7 +61,7 @@ RUN echo 'alias python="/usr/bin/python2.7"' >> ~/.bashrc
 #####################################
 
 ARG INSTALL_XDEBUG=false
-RUN if [ ${INSTALL_XDEBUG} = true ]; then \
+RUN if [ ${INSTALL_XDEBUG} != false ]; then \
     # Install the xdebug extension
     pecl install xdebug && \
     docker-php-ext-enable xdebug \
@@ -74,7 +74,7 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #####################################
 
 ARG INSTALL_MEMCACHED=false
-RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
+RUN if [ ${INSTALL_MEMCACHED} != false ]; then \
     # Install the php memcached extension
     pecl install memcached && \
     docker-php-ext-enable memcached \
@@ -85,7 +85,7 @@ RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
 #####################################
 
 ARG INSTALL_COMPOSER=false
-RUN if [ ${INSTALL_COMPOSER} = true ]; then \
+RUN if [ ${INSTALL_COMPOSER} != false ]; then \
     # Install composer and add its bin to the PATH.
     curl -s http://getcomposer.org/installer | php && \
         echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
@@ -99,7 +99,7 @@ RUN if [ ${INSTALL_COMPOSER} = true ]; then \
 #####################################
 
 ARG LARAVEL_SCHEDULE=false
-RUN if [ ${LARAVEL_SCHEDULE} = true ]; then \
+RUN if [ ${LARAVEL_SCHEDULE} != false ]; then \
     echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule && \
     chmod 0644 /etc/cron.d/laravel-schedule \
 ;fi
