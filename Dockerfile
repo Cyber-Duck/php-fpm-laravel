@@ -14,14 +14,10 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
-        python2.7 \
         openssh-server \
         git \
         cron \
         nano
-
-# Setup Python
-RUN echo 'alias python="/usr/bin/python2.7"' >> ~/.bashrc
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
@@ -55,8 +51,7 @@ RUN docker-php-ext-install gd && \
 #####################################
 
 # Install the xdebug extension
-pecl install xdebug && \
-docker-php-ext-enable xdebug \
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 # Copy xdebug configration for remote debugging
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
@@ -65,26 +60,25 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #####################################
 
 # Install the php memcached extension
-pecl install memcached && \
-docker-php-ext-enable memcached \
+RUN pecl install memcached && docker-php-ext-enable memcached
 
 #####################################
 # Composer:
 #####################################
 
 # Install composer and add its bin to the PATH.
-curl -s http://getcomposer.org/installer | php && \
+RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
-    mv composer.phar /usr/local/bin/composer && \
+    mv composer.phar /usr/local/bin/composer
 # Source the bash
-. ~/.bashrc \
+RUN . ~/.bashrc \
 
 #####################################
 # Laravel Schedule Cron Job:
 #####################################
 
-echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule && \
-chmod 0644 /etc/cron.d/laravel-schedule \
+RUN echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule
+RUN chmod 0644 /etc/cron.d/laravel-schedule
 
 #
 #--------------------------------------------------------------------------
