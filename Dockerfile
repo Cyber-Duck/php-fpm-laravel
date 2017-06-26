@@ -14,10 +14,14 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
+        python2.7 \
         openssh-server \
         git \
         cron \
         nano
+
+# Setup Python
+RUN echo 'alias python="/usr/bin/python2.7"' >> ~/.bashrc
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
