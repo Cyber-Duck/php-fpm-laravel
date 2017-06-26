@@ -79,11 +79,9 @@ curl -s http://getcomposer.org/installer | php && \
 # Laravel Schedule Cron Job:
 #####################################
 
-ARG LARAVEL_SCHEDULE=false
-RUN if [ ${LARAVEL_SCHEDULE} != false ]; then \
-    echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule && \
-    chmod 0644 /etc/cron.d/laravel-schedule \
-;fi
+echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule && \
+chmod 0644 /etc/cron.d/laravel-schedule \
+
 #
 #--------------------------------------------------------------------------
 # Final Touch
