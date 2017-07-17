@@ -60,7 +60,7 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #####################################
 
 # Install the php memcached extension
-RUN pecl install memcached && docker-php-ext-enable memcached
+RUN pecl install memcached-2.2.0 && docker-php-ext-enable memcached
 
 #####################################
 # Composer:
