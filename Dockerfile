@@ -47,6 +47,15 @@ RUN docker-php-ext-install gd && \
     docker-php-ext-install gd
 
 #####################################
+# xDebug:
+#####################################
+
+# Install the xdebug extension
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+# Copy xdebug configration for remote debugging
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+#####################################
 # PHP Memcached:
 #####################################
 

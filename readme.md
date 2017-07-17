@@ -18,9 +18,8 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * Composer
 * Laravel Cron Job for the [task scheduling](https://laravel.com/docs/5.4/scheduling#introduction) setup
 * PHP ini values for Laravel (see [`laravel.ini`](https://github.com/Cyber-Duck/php-fpm-laravel/blob/master/laravel.ini))
+* xDebug (PHPStorm friendly, see [`xdebug.ini`](https://github.com/Cyber-Duck/php-fpm-laravel/blob/master/xdebug.ini))
 * `t` alias created to run unit tests `vendor/bin/phpunit` with `docker-compose exec [service_name] t`
-
-**Note:** PHP versions below 5.5 are not supported by xDebug.
 
 ## Tags available:
 
