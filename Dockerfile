@@ -101,6 +101,9 @@ RUN chmod +x /usr/bin/fresh
 # docker-compose exec php-fpm t --> run the tests for the project and generate testdox
 RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/artisan config:clear\n/var/www/vendor/bin/phpunit -d memory_limit=2G --stop-on-error --stop-on-failure --testdox-text=tests/report.txt "$@"' > /usr/bin/t
 RUN chmod +x /usr/bin/t
+# docker-compose exec php-fpm d --> run the Laravel Dusk browser tests for the project
+RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/artisan config:clear\n/bin/bash\n/usr/local/bin/php /var/www/artisan dusk "$@"' > /usr/bin/d
+RUN chmod +x /usr/bin/d
 
 RUN rm -r /var/lib/apt/lists/*
 
