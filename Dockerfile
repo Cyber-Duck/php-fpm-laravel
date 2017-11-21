@@ -89,6 +89,9 @@ ADD ./laravel.ini /usr/local/etc/php/conf.d
 #####################################
 # Aliases:
 #####################################
+# docker-compose exec php-fpm dep --> locally installed Deployer binaries
+RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/vendor/bin/dep "$@"' > /usr/bin/dep
+RUN chmod +x /usr/bin/dep
 # docker-compose exec php-fpm art --> php artisan
 RUN echo '#!/bin/bash\n/usr/local/bin/php /var/www/artisan "$@"' > /usr/bin/art
 RUN chmod +x /usr/bin/art
