@@ -12,7 +12,6 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
-        libmemcached-dev \
         openssh-server \
         git \
         cron \
@@ -58,7 +57,7 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #####################################
 
 # Install the php memcached extension
-RUN yes | pecl install memcached-2.2.0 && docker-php-ext-enable memcached
+RUN pecl install memcached-2.2.0 && docker-php-ext-enable memcached
 
 #####################################
 # Composer:
