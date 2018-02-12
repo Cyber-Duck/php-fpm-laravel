@@ -4,7 +4,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 
 ## Specifications:
 
-* PHP 7.1
+* PHP 7.2 / 7.1 / 7.0 / 5.6 / 5.4
 * OpenSSL PHP Extension
 * PDO PHP Extension
 * Mbstring PHP Extension
@@ -25,11 +25,15 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 
 When calling the image you want to use within your `docker-compose.yml` file,
 you can specify a tag for the image. Tags are used for various versions of a
-given Docker image. By default, `latest` is the one used when no tag is specified.
+given Docker image.
 
-* `latest` which is using PHP 7.0
-* `5.6`
-* `5.4`
+* [`7.2`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.2)
+* [`7.1`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.1)
+* [`7.0`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.0)
+* [`5.6`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/5.6)
+* [`5.4`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/5.4)
+
+**Note:** the `master` branch is not used for generating images, used for ducmentation instead. Only tags/branches are. 
 
 ## docker-compose usage:
 
@@ -37,7 +41,7 @@ given Docker image. By default, `latest` is the one used when no tag is specifie
 version: '2'
 services:
     php-fpm:
-        image: cyberduck/php-fpm-laravel(:<optional-tag>)
+        image: cyberduck/php-fpm-laravel(:<version-tag>)
         volumes:
             - ./:/var/www/
             - ~/.ssh:/root/.ssh # can be useful for composer if you use private CVS
