@@ -17,8 +17,9 @@ RUN apt-get update && \
         cron \
         nano
 
-# Install the PHP mcrypt extention
-RUN docker-php-ext-install mcrypt
+# Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
+RUN pecl install mcrypt-1.0.1
+RUN docker-php-ext-enable mcrypt
 
 # Install the PHP pcntl extention
 RUN docker-php-ext-install pcntl
