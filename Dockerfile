@@ -69,7 +69,7 @@ RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
     mv composer.phar /usr/local/bin/composer
 # Source the bash
-RUN . ~/.bashrc \
+RUN . ~/.bashrc
 
 #####################################
 # Laravel Schedule Cron Job:
