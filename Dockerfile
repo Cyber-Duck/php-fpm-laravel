@@ -12,6 +12,7 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
+        libmemcached-dev \
         openssh-server \
         git \
         cron \
