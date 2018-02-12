@@ -49,7 +49,7 @@ RUN docker-php-ext-configure gd \
 #####################################
 
 # Install the xdebug extension
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN yes | pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
 # Copy xdebug configration for remote debugging
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
@@ -58,7 +58,7 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #####################################
 
 # Install the php memcached extension
-RUN pecl install memcached-2.2.0 && docker-php-ext-enable memcached
+RUN yes | pecl install memcached-2.2.0 && docker-php-ext-enable memcached
 
 #####################################
 # Composer:
