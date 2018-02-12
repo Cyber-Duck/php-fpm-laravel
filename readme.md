@@ -33,7 +33,7 @@ given Docker image.
 * [`5.6`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/5.6)
 * [`5.4`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/5.4)
 
-**Note:** the `master` branch is not used for generating images, used for ducmentation instead. Only tags/branches are. 
+**Note:** the `master` branch is not used for generating images, used for documentation instead. Only tags/branches are. 
 
 ## docker-compose usage:
 
