@@ -7,6 +7,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * PHP 7.2 / 7.1 / 7.0 / 5.6 / 5.4
 * OpenSSL PHP Extension
 * PDO PHP Extension
+* SOAP PHP Extension
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
 * XML PHP Extension
@@ -14,6 +15,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * ZIP PHP Extension
 * MCRYPT PHP Extension
 * GD PHP Extension
+* BCMath PHP Extension
 * Memcached
 * Composer
 * Laravel Cron Job for the [task scheduling](https://laravel.com/docs/5.4/scheduling#introduction) setup
