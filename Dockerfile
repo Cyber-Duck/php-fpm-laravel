@@ -37,6 +37,9 @@ RUN docker-php-ext-install pdo_mysql
 # Install the PHP pdo_pgsql extention
 RUN docker-php-ext-install pdo_pgsql
 
+# Install the PHP bcmath extension
+RUN docker-php-ext-install bcmath
+
 #####################################
 # GD:
 #####################################
