@@ -15,7 +15,11 @@ RUN apt-get update && \
         openssh-server \
         git \
         cron \
-        nano
+        nano \
+        libxml2-dev
+
+# Install soap extention
+RUN docker-php-ext-install soap
 
 # Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
 RUN pecl install mcrypt-1.0.1
