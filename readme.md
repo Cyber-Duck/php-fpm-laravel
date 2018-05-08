@@ -16,12 +16,16 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * MCRYPT PHP Extension
 * GD PHP Extension
 * BCMath PHP Extension
+* Imagick PHP Extension
 * Memcached
 * Composer
 * Laravel Cron Job for the [task scheduling](https://laravel.com/docs/5.4/scheduling#introduction) setup
-* PHP ini values for Laravel (see [`laravel.ini`](https://github.com/Cyber-Duck/php-fpm-laravel/blob/master/laravel.ini))
-* xDebug (PHPStorm friendly, see [`xdebug.ini`](https://github.com/Cyber-Duck/php-fpm-laravel/blob/master/xdebug.ini))
+* PHP ini values for Laravel (see [`laravel.ini`](laravel.ini))
+* xDebug (PHPStorm friendly, see [`xdebug.ini`](xdebug.ini))
 * `t` alias created to run unit tests `vendor/bin/phpunit` with `docker-compose exec [service_name] t`
+* `d` alias created to run Laravel Dusk browser tests `artisan dusk` with `docker-compose exec [service_name] d`
+* `art` alias created to run the Laravel `artisan` command
+* `fresh` alias created to migrate the database fresh and seed the seeders `artisan migrate:fresh --seed`
 
 ## Tags available:
 
