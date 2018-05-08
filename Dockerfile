@@ -12,6 +12,7 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
+        libmagickwand-dev \
         openssh-server \
         git \
         cron \
@@ -39,8 +40,12 @@ RUN docker-php-ext-install pdo_pgsql
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
 
-# Install the PHP imagick extension
-RUN docker-php-ext-install imagick
+#####################################
+# Imagick:
+#####################################
+
+RUN pecl install imagick && \
+    docker-php-ext-enable imagick
 
 #####################################
 # GD:
