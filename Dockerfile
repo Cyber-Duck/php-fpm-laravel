@@ -92,6 +92,8 @@ RUN . ~/.bashrc \
 
 RUN echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule
 RUN chmod 0644 /etc/cron.d/laravel-schedule
+# Start Cron service
+RUN service cron start
 
 #
 #--------------------------------------------------------------------------
