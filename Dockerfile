@@ -13,6 +13,7 @@ RUN apt-get update && \
         libssl-dev \
         libmcrypt-dev \
         openssh-server \
+        libmagickwand-dev \
         git \
         cron \
         nano \
@@ -38,6 +39,13 @@ RUN docker-php-ext-install pdo_pgsql
 
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
+
+#####################################
+# Imagick:
+#####################################
+
+RUN pecl install imagick && \
+    docker-php-ext-enable imagick
 
 #####################################
 # GD:
@@ -84,6 +92,8 @@ RUN . ~/.bashrc \
 
 RUN echo "* * * * * root php /var/www/artisan schedule:run >> /dev/null 2>&1" >> /etc/cron.d/laravel-schedule
 RUN chmod 0644 /etc/cron.d/laravel-schedule
+# Start Cron service
+RUN service cron start
 
 #
 #--------------------------------------------------------------------------
