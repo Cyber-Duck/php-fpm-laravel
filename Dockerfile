@@ -40,6 +40,9 @@ RUN docker-php-ext-install pdo_pgsql
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
 
+# Install ext-sockets
+RUN docker-php-ext-install sockets
+
 #####################################
 # Imagick:
 #####################################
