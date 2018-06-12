@@ -3,12 +3,12 @@ FROM php:7.0-fpm
 MAINTAINER clement@cyber-duck.co.uk
 
 RUN apt-get update && \
-    apt-get install -y --force-yes --no-install-recommends \
+    apt-get install -y --allow --no-install-recommends \
         libmemcached-dev \
         libz-dev \
         libpq-dev \
         libjpeg-dev \
-        libpng12-dev \
+        libpng-dev \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
