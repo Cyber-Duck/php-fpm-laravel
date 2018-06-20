@@ -49,4 +49,6 @@ services:
             - ~/.ssh:/root/.ssh # can be useful for composer if you use private CVS
         networks:
             - my_net #if you're using networks between containers
+        environment:
+            XDEBUG: "true" # optional: "false" by default
 ```
