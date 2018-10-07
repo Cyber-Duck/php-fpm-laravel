@@ -43,6 +43,8 @@ RUN docker-php-ext-install pdo_pgsql
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
 
+
+
 #####################################
 # Imagick:
 #####################################
@@ -79,15 +81,16 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN pecl install memcached && docker-php-ext-enable memcached
 
 #####################################
-# Composer:
+# MongoDB
 #####################################
+RUN pecl install -o -f mongodb && \
+    echo 'extension=mongodb.so' > /usr/local/etc/php/conf.d/mongodb.ini
 
-# Install composer and add its bin to the PATH.
-RUN curl -s http://getcomposer.org/installer | php && \
-    echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
-    mv composer.phar /usr/local/bin/composer
-# Source the bash
-RUN . ~/.bashrc
+#####################################
+# Redis
+#####################################
+RUN pecl install -o -f redis && \
+    echo 'extension=redis.so' > /usr/local/etc/php/conf.d/redis.ini
 
 #####################################
 # Laravel Schedule Cron Job:
