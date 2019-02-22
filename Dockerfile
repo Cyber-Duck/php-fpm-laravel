@@ -24,6 +24,9 @@ RUN apt-get update && \
 # Install soap extention
 RUN docker-php-ext-install soap
 
+# Install for image manipulation
+RUN docker-php-ext-install exif
+
 # Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
 RUN pecl install mcrypt-1.0.1
 RUN docker-php-ext-enable mcrypt
