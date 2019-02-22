@@ -24,6 +24,9 @@ RUN apt-get update && \
 # Install soap extention
 RUN docker-php-ext-install soap
 
+# Install for image manipulation
+RUN docker-php-ext-install exif
+
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
 
