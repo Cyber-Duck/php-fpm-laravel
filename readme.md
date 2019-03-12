@@ -19,8 +19,8 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * Imagick PHP Extension
 * Memcached
 * Composer
-* OPCache values (see [`opcache.ini`](laravel.ini))
-* PHP pooling values (see [`zz-cyberduck.conf`](laravel.ini))
+* OPCache values (see [`opcache.ini`](opcache.ini))
+* PHP pooling values (see [`zz-cyberduck.conf`](zz-cyberduck.conf))
 * PHP ini values for Laravel (see [`laravel.ini`](laravel.ini))
 
 ## Tags available:
