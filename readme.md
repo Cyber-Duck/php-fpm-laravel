@@ -19,13 +19,9 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * Imagick PHP Extension
 * Memcached
 * Composer
-* Laravel Cron Job for the [task scheduling](https://laravel.com/docs/5.4/scheduling#introduction) setup
+* OPCache values (see [`opcache.ini`](laravel.ini))
+* PHP pooling values (see [`zz-cyberduck.conf`](laravel.ini))
 * PHP ini values for Laravel (see [`laravel.ini`](laravel.ini))
-* xDebug (PHPStorm friendly, see [`xdebug.ini`](xdebug.ini))
-* `t` alias created to run unit tests `vendor/bin/phpunit` with `docker-compose exec [service_name] t`
-* `d` alias created to run Laravel Dusk browser tests `artisan dusk` with `docker-compose exec [service_name] d`
-* `art` alias created to run the Laravel `artisan` command
-* `fresh` alias created to migrate the database fresh and seed the seeders `artisan migrate:fresh --seed`
 
 ## Tags available:
 
@@ -34,6 +30,7 @@ you can specify a tag for the image. Tags are used for various versions of a
 given Docker image.
 
 * [`7.2`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.2)
+* [`7.2-minimal`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.2-minimal)
 * [`7.1`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.1)
 * [`7.0`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.0)
 * [`5.6`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/5.6)
@@ -44,7 +41,7 @@ given Docker image.
 ## docker-compose usage:
 
 ```yml
-version: '2'
+version: '3'
 services:
     php-fpm:
         image: cyberduck/php-fpm-laravel(:<version-tag>)
