@@ -15,6 +15,7 @@ RUN apt-get install -y --allow-downgrades --no-install-recommends \
         libmcrypt-dev \
         openssh-server \
         libmagickwand-dev \
+        git \
         nano \
         libxml2-dev
 
