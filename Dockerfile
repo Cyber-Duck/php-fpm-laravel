@@ -62,6 +62,8 @@ RUN docker-php-ext-install gd && \
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2
 
+RUN docker-php-ext-install exif
+
 #####################################
 # PHP OP Cache:
 #####################################
