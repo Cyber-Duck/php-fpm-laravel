@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
         libz-dev \
+        libzip-dev \
         libpq-dev \
         libjpeg-dev \
         libpng-dev \
@@ -28,7 +29,7 @@ RUN docker-php-ext-install soap
 RUN docker-php-ext-install exif
 
 # Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
-RUN pecl install mcrypt-1.0.1
+RUN pecl install mcrypt-1.0.2
 RUN docker-php-ext-enable mcrypt
 
 # Install the PHP pcntl extention
