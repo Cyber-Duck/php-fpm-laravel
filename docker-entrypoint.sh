@@ -18,8 +18,8 @@ do
   fi
 done
 
-# If there is still no value for the REMOUT_HOST variable then we set it to the default of host.docker.internal. This
-# value should be sufficient for widnows and mac environments.
+# If there is still no value for the REMOTE_HOST variable then we set it to the default of host.docker.internal. This
+# value will be sufficient for widnows and mac environments.
 if [ -z "${REMOTE_HOST}" ]; then
   REMOTE_HOST="host.docker.internal"
   sed -i "/REMOTE_HOST/d"  ~/.bashrc
