@@ -115,9 +115,9 @@ Languages & Frameworks > PHP > Servers** and then follow the steps below.
 2, Create a name for the server. This will be the value of serverName in the PHP_IDE_CONFIG variable e.g
  `PHP_IDE_CONFIG="serverName=<CONFIGURED_SERVER_NAME>"`.
  
-3, Set Host to `http://localhost` or if using a virtual host then use this e.g `http://myapp.localhost`.
+3, Set Host to `http://localhost` or if using a virtual host then use that instead e.g `http://myapp.localhost`.
 
-4, Set the port to the port that is being using on the host machine e.g `80`.
+4, Set the port to the port that is being used on the host machine e.g `80`.
 
 5, Set the debugger to Xdebug.
 
@@ -135,7 +135,7 @@ Languages & Frameworks > PHP > Servers** and then follow the steps below.
 
 ### Visual studio code configuration
 
-For Xdebug to work in Visual Studio Code then a launch.json will need to be added to .vscode folder in the route of the
+For Xdebug to work in Visual Studio Code a launch.json will need to be added to .vscode folder in the route of the
 project. Please see below for an example of a launch.json file
 
 ```json
@@ -155,8 +155,8 @@ project. Please see below for an example of a launch.json file
 }
 ```
 
-Once this has been added then you can navigate to the debug section and on the left hand side under the **BREAKPOINTS** 
-section uncheck the `Everything` checkbox. Now from the dropdown menu at the top select`listen for Xdebug` then press
+Once this has been added then you can navigate to the debug section. On the left hand side under the **BREAKPOINTS** 
+section uncheck the `Everything` checkbox. Now from the dropdown menu at the top select `listen for Xdebug` then press
 the play button.
 
 Xdebug can now be tested by adding a breakpoint and refreshing the browser.  
