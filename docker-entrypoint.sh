@@ -19,14 +19,14 @@ do
 done
 
 # If there is still no value for the REMOTE_HOST variable then we set it to the default of host.docker.internal. This
-# value will be sufficient for widnows and mac environments.
+# value will be sufficient for windows and mac environments.
 if [ -z "${REMOTE_HOST}" ]; then
   REMOTE_HOST="host.docker.internal"
   sed -i "/REMOTE_HOST/d"  ~/.bashrc
   echo "export REMOTE_HOST=\"$REMOTE_HOST\"" >> ~/.bashrc;
 fi
 
-# Source the .bashrc file so that the exporeted variables are available.
+# Source the .bashrc file so that the exported variables are available.
 . ~/.bashrc
 
 # Start the cron service.
