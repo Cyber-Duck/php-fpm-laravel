@@ -97,7 +97,7 @@ services:
         environment:
             XDEBUG: true
             PHP_IDE_CONFIG: "serverName=phpstorm-server" #This is required for PhpStorm only for path mappings
-            REMOTE_HOST="<HOSTIP>" # If not set the default is 'host.docker.internal' which will work on OSX and windows
+            REMOTE_HOST: "<HOSTIP>" # If not set the default is 'host.docker.internal' which will work on OSX and windows
         volumes:
             - ./:/var/www/
             - ~/.ssh:/root/.ssh # can be useful for composer if you use private CVS
