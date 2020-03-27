@@ -2,8 +2,6 @@ FROM php:7.2-fpm
 
 MAINTAINER clement@cyber-duck.co.uk
 
-ENV XDEBUG="false"
-
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
@@ -60,7 +58,6 @@ RUN pecl install imagick && \
 # Install the PHP gd library
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
@@ -70,9 +67,7 @@ RUN docker-php-ext-install gd && \
 #####################################
 
 # Install the xdebug extension
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-# Copy xdebug configration for remote debugging
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+RUN pecl install xdebug
 
 #####################################
 # PHP Memcached:
