@@ -77,6 +77,13 @@ RUN pecl install xdebug
 RUN pecl install memcached && docker-php-ext-enable memcached
 
 #####################################
+# PHP Redis:
+#####################################
+
+# Install the php redis extension
+RUN pecl install redis && docker-php-ext-enable redis
+
+#####################################
 # Composer:
 #####################################
 
