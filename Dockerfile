@@ -9,6 +9,7 @@ RUN apt-get update && \
         libmemcached-dev \
         libmcrypt-dev \
         libreadline-dev \
+        libgmp-dev \
         libzip-dev \
         libz-dev \
         libzip-dev \
@@ -49,8 +50,11 @@ RUN docker-php-ext-install pdo_pgsql
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
 
-# Install the PHP zip extention
+# Install the PHP intl extention
 RUN docker-php-ext-install intl
+
+# Install the PHP gmp extention
+RUN docker-php-ext-install gmp
 
 #####################################
 # Imagick:
