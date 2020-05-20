@@ -2,6 +2,8 @@ FROM php:7.3-fpm
 
 MAINTAINER clement@cyber-duck.co.uk
 
+ENV COMPOSER_MEMORY_LIMIT='-1'
+
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
