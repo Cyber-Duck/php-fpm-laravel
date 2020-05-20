@@ -5,6 +5,8 @@ MAINTAINER clement@cyber-duck.co.uk
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
+        libmcrypt-dev \
+        libreadline-dev \
         libzip-dev \
         libz-dev \
         libzip-dev \
