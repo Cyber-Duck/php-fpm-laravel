@@ -1,6 +1,8 @@
 FROM php:7.4-fpm
 
-MAINTAINER clement@cyber-duck.co.uk
+MAINTAINER support@cyber-duck.co.uk
+
+ENV COMPOSER_MEMORY_LIMIT='-1'
 
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
@@ -19,18 +21,14 @@ RUN apt-get update && \
         cron \
         nano \
         libxml2-dev \
-        libmcrypt-dev \
-        libreadline-dev
+        libreadline-dev \
+        libgmp-dev
 
 # Install soap extention
 RUN docker-php-ext-install soap
 
 # Install for image manipulation
 RUN docker-php-ext-install exif
-
-# Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
-RUN pecl install mcrypt-1.0.3
-RUN docker-php-ext-enable mcrypt
 
 # Install the PHP pcntl extention
 RUN docker-php-ext-install pcntl
@@ -46,6 +44,17 @@ RUN docker-php-ext-install pdo_pgsql
 
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
+
+# Install the PHP intl extention
+RUN docker-php-ext-install intl
+
+# Install the PHP gmp extention
+RUN docker-php-ext-install gmp
+
+#####################################
+# PHPRedis:
+#####################################
+RUN pecl install redis && docker-php-ext-enable redis
 
 #####################################
 # Imagick:
