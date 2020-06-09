@@ -2,9 +2,14 @@ FROM php:7.3-fpm
 
 MAINTAINER support@cyber-duck.co.uk
 
+ENV COMPOSER_MEMORY_LIMIT='-1'
+
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
+        libmcrypt-dev \
+        libreadline-dev \
+        libgmp-dev \
         libzip-dev \
         libz-dev \
         libzip-dev \
@@ -29,6 +34,12 @@ RUN docker-php-ext-install exif
 # Install the PHP pcntl extention
 RUN docker-php-ext-install pcntl
 
+# Install the PHP intl extention
+RUN docker-php-ext-install intl
+
+# Install the PHP gmp extention
+RUN docker-php-ext-install gmp
+
 # Install the PHP zip extention
 RUN docker-php-ext-install zip
 
@@ -40,7 +51,6 @@ RUN docker-php-ext-install pdo_pgsql
 
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
-
 
 #####################################
 # PHPRedis:
