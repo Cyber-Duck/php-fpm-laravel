@@ -1,6 +1,6 @@
 FROM php:7.3-fpm
 
-MAINTAINER clement@cyber-duck.co.uk
+MAINTAINER support@cyber-duck.co.uk
 
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
@@ -26,10 +26,6 @@ RUN docker-php-ext-install soap
 # Install for image manipulation
 RUN docker-php-ext-install exif
 
-# Install the PHP mcrypt extention (from PECL, mcrypt has been removed from PHP 7.2)
-RUN pecl install mcrypt-1.0.2
-RUN docker-php-ext-enable mcrypt
-
 # Install the PHP pcntl extention
 RUN docker-php-ext-install pcntl
 
@@ -44,6 +40,12 @@ RUN docker-php-ext-install pdo_pgsql
 
 # Install the PHP bcmath extension
 RUN docker-php-ext-install bcmath
+
+
+#####################################
+# PHPRedis:
+#####################################
+RUN pecl install redis && docker-php-ext-enable redis
 
 #####################################
 # Imagick:

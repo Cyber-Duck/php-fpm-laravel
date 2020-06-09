@@ -13,7 +13,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * XML PHP Extension
 * PCNTL PHP Extension
 * ZIP PHP Extension
-* MCRYPT PHP Extension
+* PhpRedis Extension
 * GD PHP Extension
 * BCMath PHP Extension
 * Imagick PHP Extension
