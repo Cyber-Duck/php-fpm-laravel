@@ -69,9 +69,7 @@ RUN pecl install imagick && \
 
 # Install the PHP gd library
 RUN docker-php-ext-install gd && \
-    docker-php-ext-configure gd \
-        --with-jpeg=/usr/lib \
-        --with-freetype=/usr/include/freetype2 && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd
 
 #####################################
@@ -103,7 +101,7 @@ RUN . ~/.bashrc
 # Laravel Schedule Cron Job:
 #####################################
 
-RUN echo "* * * * * root /usr/local/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1"  >> /etc/cron.d/laravel-scheduler
+RUN echo "* * * * * www-data /usr/local/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1"  >> /etc/cron.d/laravel-scheduler
 RUN chmod 0644 /etc/cron.d/laravel-scheduler
 
 #
