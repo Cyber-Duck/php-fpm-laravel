@@ -12,7 +12,6 @@ RUN apt-get update && \
         libgmp-dev \
         libzip-dev \
         libz-dev \
-        libzip-dev \
         libpq-dev \
         libjpeg-dev \
         libpng-dev \
