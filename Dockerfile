@@ -22,7 +22,8 @@ RUN apt-get update && \
         nano \
         libxml2-dev \
         libreadline-dev \
-        libgmp-dev
+        libgmp-dev \
+        mariadb-client
 
 # Install soap extention
 RUN docker-php-ext-install soap
