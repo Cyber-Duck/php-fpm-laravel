@@ -22,7 +22,8 @@ RUN apt-get update && \
         git \
         cron \
         nano \
-        libxml2-dev
+        libxml2-dev \
+        mariadb-client
 
 # Install soap extention
 RUN docker-php-ext-install soap
