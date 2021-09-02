@@ -4,7 +4,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 
 ## Specifications:
 
-* PHP 7.4 / 7.3 / 7.2 / 7.1 / 7.0 / 5.6 / 5.4
+* PHP 8.0 / 7.4 / 7.3 / 7.2 / 7.1 / 7.0 / 5.6 / 5.4
 * OpenSSL PHP Extension
 * PDO PHP Extension
 * SOAP PHP Extension
