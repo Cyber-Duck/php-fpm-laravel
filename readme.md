@@ -33,6 +33,7 @@ When calling the image you want to use within your `docker-compose.yml` file,
 you can specify a tag for the image. Tags are used for various versions of a
 given Docker image.
 
+* [`8.0`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/8.0)
 * [`7.4`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.4)
 * [`7.3`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.3)
 * [`7.2`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/7.2)
