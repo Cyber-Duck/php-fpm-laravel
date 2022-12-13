@@ -4,6 +4,24 @@ MAINTAINER support@cyber-duck.co.uk
 
 ENV COMPOSER_MEMORY_LIMIT='-1'
 
+#####################################
+# SQLITE 3 v34.0
+#####################################
+
+RUN apt purge -y --force-yes libsqlite3-0
+RUN apt-get -y update && apt-get -y upgrade && apt install -y --no-install-recommends build-essential wget
+
+RUN wget https://sqlite.org/2022/sqlite-autoconf-3400000.tar.gz  \
+    && tar xvfz sqlite-autoconf-3400000.tar.gz  \
+    && cd sqlite-autoconf-3400000  \
+    && ./configure && make  \
+    && make install  \
+    && export PATH="/usr/local/lib:$PATH"
+
+#####################################
+# BASE PACKAGES AND DEPENDENCIES
+#####################################
+
 RUN apt-get update && \
     apt-get install -y --force-yes --no-install-recommends \
         libmemcached-dev \
@@ -73,13 +91,6 @@ RUN pecl install imagick && \
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd
-
-#####################################
-# xDebug:
-#####################################
-
-# Install the xdebug extension
-RUN pecl install xdebug
 
 #####################################
 # PHP Memcached:
