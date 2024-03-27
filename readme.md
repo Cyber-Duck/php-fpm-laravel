@@ -4,7 +4,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 
 ## Specifications:
 
-* PHP 8.2 / 8.1 / 8.0 / 7.4 / 7.3 / 7.2 / 7.1 / 7.0 / 5.6 / 5.4
+* PHP 8.3 / 8.2 / 8.1 / 8.0 / 7.4 / 7.3 / 7.2 / 7.1 / 7.0 / 5.6 / 5.4
 * OpenSSL PHP Extension
 * PDO PHP Extension
 * SOAP PHP Extension
@@ -34,6 +34,7 @@ When calling the image you want to use within your `docker-compose.yml` file,
 you can specify a tag for the image. Tags are used for various versions of a
 given Docker image.
 
+* [`8.3`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/8.3)
 * [`8.2`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/8.2)
 * [`8.1`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/8.1)
 * [`8.0`](https://github.com/Cyber-Duck/php-fpm-laravel/tree/8.0)
