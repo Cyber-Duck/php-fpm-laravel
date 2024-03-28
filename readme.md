@@ -20,7 +20,7 @@ Docker image for a php-fpm container crafted to run Laravel based applications.
 * Imagick PHP Extension
 * Memcached
 * Composer
-* Laravel Cron Job for the [task scheduling](https://laravel.com/docs/5.4/scheduling#introduction) setup
+* Laravel Cron Job for the [task scheduling](https://laravel.com/docs/11.x/scheduling) setup
 * PHP ini values for Laravel (see [`laravel.ini`](laravel.ini))
 * xDebug (PHPStorm friendly, see [`xdebug.ini`](xdebug.ini))
 * `t` alias created to run unit tests `vendor/bin/phpunit` with `docker-compose exec [service_name] t`
@@ -63,6 +63,8 @@ services:
 ```
 
 ## Xdebug usage:
+
+All images > PHP 8.1 are configured to support xDebug 3.
 
 The image comes with Xdebug installed but by default it is disabled. Xdebug can be enabled using an environmental
 variable. This can either be done using the .env file, passing the envs using docker or passing the envs using
