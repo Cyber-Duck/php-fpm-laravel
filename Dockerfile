@@ -1,7 +1,5 @@
 FROM php:8.3-fpm
 
-MAINTAINER support@cyber-duck.co.uk
-
 ENV COMPOSER_MEMORY_LIMIT='-1'
 
 RUN apt-get update && \
